@@ -1,34 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const bnUtil = require('../bn-connection-util');
+const bnUtil = require('../util/bn-connection-util');
 const db = require('../db/db');
-const studentNamespace = 'org.university';
-const resourceName = 'Student';
+
 let students = "";
+const { connect, hello, b:c } =   require('../api/helper');
 
 
-function connect() {
-    var registry = {}
 
-    return bnUtil.connection.getAssetRegistry(studentNamespace + '.' + resourceName).then((reg) => {
-        registry = reg;
-
-        console.log('Received Registry: ', registry.id);
-
-        return registry.getAll();
-    }).then((studentsObjects) => {
-        bnUtil.disconnect();
-        students = JSON.stringify(studentsObjects);
-    }).catch((error) => {
-        console.log(error);
-        bnUtil.disconnect();
-    });
-}
 
 
 router.get('/students/:token', (req, res) => {
+    hello()
+    c()
 
-    console.log(req);
     const token = req.params.token
 
     db.cards.map((card) => {
