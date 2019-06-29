@@ -15,14 +15,18 @@
  * 3. Card imported to the card storage on file system
  */
 
+const cf = require("./../config");
+console.log(cf.cardName);
+
 // Need the card store instance
 // 0.20.5 Does not need Card Store object - commented line below
 // const FileSystemCardStore = require('composer-common').FileSystemCardStore;
 
 const BusinessNetworkConnection = require('composer-client').BusinessNetworkConnection;
 // Used as the card for all calls
-var cardName = "admin@airlinev7";
-const   registryId = "org.acme.airline.aircraft.Aircraft";
+const cardName = cf.cardName;
+// const   registryId = "org.acme.airline.aircraft.Aircraft";
+const   registryId = cf.registryId;
 
 // v0.20.5 does not require the card store
 // Commented lines below + constructor doesn't require cardStoreObj

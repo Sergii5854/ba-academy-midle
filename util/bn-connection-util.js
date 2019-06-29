@@ -20,12 +20,17 @@
  * You may change the constants in this code to connect to
  * your apps instead of the default airlinev7
  */
+
+
+const cf = require("./../config");
+console.log(cf.cardName);
+
 module.exports = {
     // Properties used for creating instance of the BN connection
     cardStore : require('composer-common').FileSystemCardStore,
     BusinessNetworkConnection : require('composer-client').BusinessNetworkConnection,
     // Used for connect()
-    cardName : "admin@airlinev7",
+    cardName : cf.cardName,
 
     // Holds the Business Network Connection
     connection: {},
