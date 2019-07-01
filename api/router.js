@@ -40,4 +40,10 @@ router.get('/hello/', (req, res) => {
     res.end()
 })
 
+router.get('/test/', (req, res) => {
+    bnUtil
+    return res.status(200).send("test");
+    res.end()
+})
+
 module.exports = router;
